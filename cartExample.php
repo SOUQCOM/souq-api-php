@@ -8,15 +8,20 @@ use SouqAPI\AccessToken;
 
 $connection= new SouqAPIConnection(CLIENT_ID,CLIENT_SECRET);
 
+// These two values should be obtained by OAuth services
+$oauthAccessToken='';
+$oauthCustomerID='';
+
+//Authorized Scopes
+$scopes='customer_profile,cart_management,customer_demographics';
+
 // Set the token to connection, so $connection will pass access_token and customer_id in every api call
-$tokenInfo['access_token']=OAUTH_ACCESS_TOKEN;
-$tokenInfo['customer_id']=OAUTH_CUSTOMER_ID;
-
-$souqToken=new AccessToken($tokenInfo,OAUTH_SCOPES);
-
+$tokenInfo['access_token']=$oauthAccessToken;
+$tokenInfo['customer_id']=$oauthCustomerID;
+$souqToken=new AccessToken($tokenInfo,$scopes);
 $connection->setAccessToken($souqToken);
 
-// Change Default Language and country params
+// Change Default Language and Country params
 $connection->setDefaultCountry('sa');
 $connection->setDefaultLanguage('en');
 
