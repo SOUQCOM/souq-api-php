@@ -209,14 +209,15 @@ class SouqAPIConnection
         if (!empty($this->accessToken)){
             $params[SouqAPIConnection::KEY_ACCESS_TOKEN] = $this->accessToken->getAccessTokenVal();
             $params[SouqAPIConnection::KEY_CUSTOMER_ID] = $this->accessToken->getCustomerId();
+            $this->getHttpClient()->header->set('Authorization',$this->getAccessToken()->getType().' '.$this->accessToken->getAccessTokenVal());
         }
 
         $url=$this->apiUrl.$uri;
         try {
 
-            $oResponse = $this->httpClient->$method($url, $params);
+            $oResponse = $this->getHttpClient()->$method($url, $params);
             if (empty($oResponse->body)) {
-                $oResponse = $this->httpClient->$method($url, $params);
+                $oResponse = $this->getHttpClient()->$method($url, $params);
             }
         } catch (Exception $e) {
             throw new APICallException(500, $e);

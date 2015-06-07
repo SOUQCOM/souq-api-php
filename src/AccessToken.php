@@ -57,6 +57,9 @@ class AccessToken{
      */
     public function getType()
     {
+        if(!isset($this->type)){
+            return 'Bearer';
+        }
         return $this->type;
     }
 
