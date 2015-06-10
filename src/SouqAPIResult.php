@@ -56,9 +56,9 @@ class SouqAPIResult
         return false;
     }
 
-    public function isExpiredTokenResponse($uri)
+    public function isExpiredTokenResponse()
     {
-        if( $this->status == 401 && (strpos($uri , SouqAPIConnection::KEY_ACCESS_TOKEN) === false) ) {
+        if( $this->status == 401) {
             return true;
         }
         return false;

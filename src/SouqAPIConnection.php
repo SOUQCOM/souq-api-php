@@ -207,7 +207,6 @@ class SouqAPIConnection
         $params[SouqAPIConnection::KEY_COUNTRY] = $this->getDefaultCountry();
 
         if (!empty($this->accessToken)){
-            $params[SouqAPIConnection::KEY_ACCESS_TOKEN] = $this->accessToken->getAccessTokenVal();
             $params[SouqAPIConnection::KEY_CUSTOMER_ID] = $this->accessToken->getCustomerId();
             $this->getHttpClient()->header->set('Authorization',$this->getAccessToken()->getType().' '.$this->accessToken->getAccessTokenVal());
         }
