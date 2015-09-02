@@ -1,0 +1,22 @@
+{
+    "name": "souq/api-sdk-php",
+    "description": "Souq.com API PHP SDK",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Ahmed El.Hussaini",
+            "email": "ahussaini@souq.com"
+        }
+    ],
+    "require": {
+      "guzzlehttp/guzzle": "~6.0",
+      "hassankhan/config": "~0.8.2",
+      "symfony/yaml": "~2.7.3",
+      "tedivm/stash": "~0.13.1"
+    },
+    "autoload": {
+      "psr-4": {
+        "SouqAPI\\": "src/SouqAPI/"
+      }
+    }
+}
